@@ -1,0 +1,27 @@
+#!/bin/sh
+
+xmodmap "/home/jasonhe/.Xmodmap"
+
+# exec sh "~/.fractal/init.sh"
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+
+# Automatically Started Applications
+# Desktop File
+nm-applet &
+albert &
+fcitx &
+volumeicon &
+
+# Script File
+setxkbmap -option caps:escape
+sslocal -c ss.json &
+
+# generate the menu
+mmaker -f FluxBox -t Konsole
+sed -i "s/(FluxBox)/(Fractal)/g"  "~/.fluxbox/menu"
+
+exec fluxbox
+

@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# Change your keymap:
+xmodmap "/home/jasonhe/.Xmodmap"
+
+# Applications you want to run with fluxbox.
+# MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
+#
+# unclutter -idle 2 &
+# wmnd &
+# wmsmixer -w &
+# idesk &
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+nm-applet >/dev/null 2>/dev/null &
+albert &
+fcitx &
+yakuake &
+feh --bg-scale ~/Pictures/wallpaper3.jpg
+setxkbmap -option caps:escape
+
+
+exec fluxbox
+# or if you want to keep a log:
+# exec fluxbox -log "/home/jasonhe/.fluxbox/log"

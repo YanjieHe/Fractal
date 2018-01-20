@@ -1,0 +1,226 @@
+[begin] (FluxBox)
+    [submenu] (Development)
+        [exec] (CMake) {cmake-gui}
+        [exec] (CMake curses GUI [ccmake]) {konsole -e ccmake}
+        [exec] (CodeLite) {codelite}
+        [exec] (Cppcheck) {cppcheck-gui}
+        [exec] (DB Browser for SQLite) {sqlitebrowser}
+        [exec] (DrRacket) {drracket}
+        [exec] (Eclipse) {eclipse}
+        [exec] (Electron) {electron}
+        [exec] (Fluid) {fluid}
+        [exec] (GDB) {konsole -e gdb}
+        [exec] (Heaptrack) {heaptrack_gui}
+        [exec] (IDLE [Python IDE]) {idle}
+        [exec] (ipython) {konsole -e ipython}
+        [exec] (Julia) {konsole -e julia}
+        [exec] (Kirigami Gallery) {kpackagelauncherqml -a org.kde.kirigami2.gallery}
+        [exec] (MySQL Workbench) {mysql-workbench}
+        [exec] (Ocaml) {konsole -e ocaml}
+        [exec] (Python) {konsole -e python}
+        [exec] (Python [v2.7]) {konsole -e python2.7}
+        [exec] (Qt Assistant) {assistant}
+        [exec] (Qt Creator) {qtcreator}
+        [exec] (Qt Designer) {designer}
+        [exec] (Qt Linguist) {linguist}
+        [exec] (Qt QDbusViewer) {qdbusviewer}
+        [exec] (Qt4 Assistant) {assistant-qt4}
+        [exec] (Qt4 Designer) {designer-qt4}
+        [exec] (Qt4 Linguist) {linguist-qt4}
+        [exec] (Qt4 QDbusViewer) {qdbusviewer-qt4}
+        [exec] (Spyder3) {spyder3}
+        [exec] (Tclsh8.6) {konsole -e tclsh8.6}
+    [end]
+    [submenu] (Editors)
+        [exec] (AA Fire) {konsole -e aafire -driver slang}
+        [exec] (Emacs) {konsole -e emacs}
+        [exec] (Kate) {kate}
+        [exec] (Nano) {konsole -e nano}
+        [exec] (Vi) {konsole -e vi}
+        [exec] (Vim) {konsole -e vim}
+    [end]
+    [submenu] (Games)
+        [submenu] (Adventure)
+            [exec] (Sclient) {sclient}
+        [end]
+        [submenu] (Arcade)
+            [exec] (PacMan) {pacman}
+        [end]
+        [submenu] (Board)
+            [exec] (Checkers) {checkers}
+            [exec] (Monopoly) {konsole -e monop}
+        [end]
+        [submenu] (Puzzle)
+            [exec] (Block Attack!) {blocks}
+            [exec] (Sudoku) {sudoku}
+        [end]
+        [exec] (Dosbox) {dosbox}
+    [end]
+    [submenu] (Graphics)
+        [exec] (Bitmap) {bitmap}
+        [exec] (dotty) {dotty}
+        [exec] (GraphicsMagick) {gm display logo:}
+        [exec] (Gwenview) {gwenview}
+        [exec] (KGraphViewer) {kgraphviewer}
+        [exec] (KolourPaint) {kolourpaint}
+        [exec] (Krita KDE Bitmap Graphics Editor) {krita}
+        [exec] (lefty) {lefty}
+        [exec] (LibreOffice Draw) {libreoffice --draw}
+        [exec] (scanimage) {konsole -e scanimage}
+        [exec] (XGlyph) {xglyph}
+    [end]
+    [submenu] (Multimedia)
+        [exec] (ALSA mixer) {konsole -e alsamixer}
+        [exec] (Cantata) {cantata}
+        [exec] (K3b) {k3b}
+        [exec] (Kdenlive) {kdenlive}
+        [exec] (PulseAudio Volume Control) {pavucontrol}
+        [exec] (Qt V4L2 test Utility) {qv4l2}
+        [exec] (qt-recordMyDesktop) {qt-recordMyDesktop}
+        [exec] (VLC media player) {vlc}
+        [exec] (VLC media player) {qvlc}
+    [end]
+    [submenu] (Network)
+        [exec] (Avahi SSH Server Browser) {bssh}
+        [exec] (Avahi VNC Server Browser) {bvnc}
+        [exec] (Chromium) {chromium}
+        [exec] (FireFox) {firefox}
+        [exec] (FTP) {konsole -e ftp}
+        [exec] (KDE Connect Indicator) {kdeconnect-indicator}
+        [exec] (Mail) {konsole -e mail}
+        [exec] (Pale Moon) {palemoon}
+        [exec] (qBittorrent) {qbittorrent}
+        [exec] (Skype Preview) {skypeforlinux}
+        [exec] (Steam) {steam}
+        [exec] (Talk) {konsole -e talk}
+        [exec] (Telnet) {konsole -e telnet}
+        [exec] (Thunderbird) {thunderbird}
+        [exec] (TkVNC) {xterm -e tkvnc}
+    [end]
+    [submenu] (Office)
+        [exec] (Document Viewer) {evince}
+        [exec] (Kile) {kile}
+        [exec] (LibreOffice Calc) {libreoffice --calc}
+        [exec] (LibreOffice Impress) {libreoffice}
+        [exec] (LibreOffice Impress) {libreoffice --impress}
+        [exec] (LibreOffice Math) {libreoffice --math}
+        [exec] (LibreOffice Writer) {libreoffice --writer}
+        [exec] (Okular) {okular}
+        [exec] (PostgreSQL Database) {konsole -e psql template1}
+        [exec] (Slideshow) {slideshow}
+        [exec] (TeXstudio) {texstudio}
+        [exec] (WPS Presentation) {wpp}
+        [exec] (WPS Spreadsheets) {et}
+        [exec] (WPS Writer) {wps}
+        [exec] (XDvi) {xdvi}
+    [end]
+    [submenu] (Other)
+        [exec] (Help) {khelpcenter}
+    [end]
+    [submenu] (Science)
+        [exec] (GNU Octave) {octave}
+        [exec] (Gnuplot) {konsole -e gnuplot}
+        [exec] (gretl) {gretl}
+        [exec] (R) {konsole -e R}
+    [end]
+    [submenu] (Shells)
+        [exec] (Dolphin) {dolphin}
+        [exec] (GIT) {konsole -e git}
+        [exec] (Konsole) {konsole}
+        [exec] (MC) {konsole -e mc}
+        [exec] (Oracle VM VirtualBox) {VirtualBox}
+        [exec] (PCManFM File Manager) {pcmanfm-qt}
+        [exec] (Q4Wine) {q4wine}
+        [exec] (UXTerm) {uxterm}
+        [exec] (Vifm) {konsole -e vifm}
+        [exec] (VirtualBox) {virtualbox}
+        [exec] (Xterm) {xterm}
+        [exec] (Yakuake) {yakuake}
+    [end]
+    [submenu] (System)
+        [submenu] (Settings)
+            [submenu] (GNOME)
+                [exec] (Network Connections) {nm-connection-editor}
+                [exec] (Privilege granting) {gksu-properties}
+            [end]
+            [exec] (Fcitx Configuration) {fcitx-configtool}
+            [exec] (KDE Connect Settings) {kcmshell5 kcm_kdeconnect}
+            [exec] (KDE System Settings) {systemsettings5}
+            [exec] (Manage Printing) {xdg-open http://localhost:631/}
+            [exec] (Manjaro Notifier KDE Settings) {msm_kde_notifier --settings}
+            [exec] (Manjaro Settings Manager) {manjaro-settings-manager}
+            [exec] (NVIDIA X Server Settings) {nvidia-settings}
+            [exec] (Print Settings) {system-config-printer}
+        [end]
+        [exec] (Avahi Zeroconf Browser) {avahi-discover}
+        [exec] (control) {q4wine-cli -p "Default" -d "system" -i "control"}
+        [exec] (Discover) {plasma-discover}
+        [exec] (eject) {q4wine-cli -p "Default" -d "system" -i "eject"}
+        [exec] (explorer) {q4wine-cli -p "Default" -d "system" -i "explorer"}
+        [exec] (Fcitx) {fcitx}
+        [exec] (GDM Setup) {gksu gdmsetup}
+        [exec] (Hardware Locality lstopo) {lstopo}
+        [exec] (HPLIP File printing) {hp-print}
+        [exec] (Htop) {konsole -e htop}
+        [exec] (iexplore) {q4wine-cli -p "Default" -d "system" -i "iexplore"}
+        [exec] (Info Center) {kinfocenter}
+        [exec] (KDE Partition Manager) {partitionmanager}
+        [exec] (KSysGuard) {ksysguard}
+        [exec] (KSystemLog) {ksystemlog}
+        [exec] (KWalletManager) {kwalletmanager5}
+        [exec] (Manjaro Hello) {manjaro-hello}
+        [exec] (notepad) {q4wine-cli -p "Default" -d "system" -i "notepad"}
+        [exec] (Octopi) {octopi}
+        [exec] (Octopi CacheCleaner) {octopi-cachecleaner}
+        [exec] (oleview) {q4wine-cli -p "Default" -d "system" -i "oleview"}
+        [exec] (Pstree) {konsole -e pstree.x11}
+        [exec] (pstree) {xterm -e /usr/bin/pstree.x11}
+        [exec] (pstree) {konsole -e pstree}
+        [exec] (regedit) {q4wine-cli -p "Default" -d "system" -i "regedit"}
+        [exec] (SUSE Studio Imagewriter) {imagewriter}
+        [exec] (taskmgr) {q4wine-cli -p "Default" -d "system" -i "taskmgr"}
+        [exec] (TeXconfig) {konsole -e texconfig}
+        [exec] (Top) {konsole -e top}
+        [exec] (uninstaller) {q4wine-cli -p "Default" -d "system" -i "uninstaller"}
+        [exec] (winecfg) {q4wine-cli -p "Default" -d "system" -i "winecfg"}
+        [exec] (wineconsole) {q4wine-cli -p "Default" -d "system" -i "wineconsole"}
+        [exec] (winemine) {q4wine-cli -p "Default" -d "system" -i "winemine"}
+        [exec] (wordpad) {q4wine-cli -p "Default" -d "system" -i "wordpad"}
+    [end]
+    [submenu] (Utilities)
+        [exec] (Albert) {albert}
+        [exec] (Ark) {ark}
+        [exec] (AutoKey) {autokey-gtk -c}
+        [exec] (AutoKey [KDE]) {autokey-qt}
+        [exec] (Bc) {konsole -e bc}
+        [exec] (CherryTree) {cherrytree}
+        [exec] (Dc) {konsole -e dc}
+        [exec] (Filelight) {filelight}
+        [exec] (HP Device Manager) {hp-toolbox}
+        [exec] (Info) {konsole -e info}
+        [exec] (KCalc) {kcalc}
+        [exec] (KFind) {kfind}
+        [exec] (Kleopatra) {kleopatra}
+        [exec] (Klipper) {klipper}
+        [exec] (Manjaro User Guide) {manjaro-documentation}
+        [exec] (Okteta) {okteta}
+        [exec] (Spectacle) {spectacle}
+        [exec] (TeXdoctk) {texdoctk}
+        [exec] (Winetricks) {winetricks --gui}
+        [exec] (Xarchiver) {xarchiver}
+        [exec] (Xsetroot) {xsetroot}
+    [end]
+    [separator]
+    [submenu] (FluxBox)
+        [workspaces] (Workspaces)
+        [submenu] (Styles)
+            [stylesdir] (/usr/share/fluxbox/styles)
+            [stylesdir] (~/.fluxbox/styles)
+        [end]
+        [config] (Configure)
+        [reconfig] (Reconfig)
+        [restart] (Restart)
+        [separator]
+        [exit] (Exit)
+    [end]
+[end]

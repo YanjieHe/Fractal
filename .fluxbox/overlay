@@ -1,0 +1,17 @@
+background: aspect
+background.pixmap: ~/.fluxbox/fractal-wallpaper-1.jpg
+
+menu.frame.font:						sans-12:bold
+menu.title.font:						sans-12:bold
+toolbar.clock.font:						sans-12:bold
+toolbar.workspace.font:					sans-12:bold
+toolbar.iconbar.focused.font:			sans-12:bold
+toolbar.iconbar.unfocused.font:			sans-12
+window.font:							sans-12
+
+#menu.titleHeight:						25
+#toolbar.height:						25
+#window.title.height:					25
+
+menu.bullet:							triangle
+menu.bullet.position:					Right
