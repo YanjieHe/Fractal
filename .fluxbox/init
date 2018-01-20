@@ -38,7 +38,7 @@ session.screen0.tooltipDelay:	500
 session.screen0.opaqueMove:	true
 session.screen0.workspaceNames:	Workspace 1,Workspace 2,Workspace 3,Workspace 4,
 session.screen0.noFocusWhileTypingDelay:	0
-session.screen0.windowMenu:	/home/jasonhe/.fluxbox/windowmenu
+session.screen0.windowMenu:	~/.fluxbox/windowmenu
 session.screen0.maxDisableResize:	false
 session.screen0.showwindowposition:	false
 session.screen0.autoRaise:	true
@@ -61,7 +61,7 @@ session.screen0.focusNewWindows:	true
 session.doubleClickInterval:	250
 session.configVersion:	13
 session.tabPadding:	0
-session.appsFile:	/home/jasonhe/.fluxbox/apps
+session.appsFile:	~/.fluxbox/apps
 session.cacheMax:	200
 session.colorsPerChannel:	4
 session.ignoreBorder:	false
@@ -70,8 +70,8 @@ session.tabsAttachArea:	Window
 session.keyFile:	~/.fluxbox/keys
 session.menuFile:	~/.fluxbox/menu
 session.styleFile:	~/.fluxbox/styles/Numix
-session.slitlistFile:	/home/jasonhe/.fluxbox/slitlist
+session.slitlistFile:	~/.fluxbox/slitlist
 session.cacheLife:	5
-session.styleOverlay:	/home/jasonhe/.fluxbox/overlay
+session.styleOverlay:	~/.fluxbox/overlay
 session.menuSearch:	itemstart
 session.forcePseudoTransparency:	false
