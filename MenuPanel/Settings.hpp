@@ -4,6 +4,11 @@
 #include <QColor>
 #include <QFont>
 #include <QString>
+
+class SettingsLoadException
+{
+};
+
 class Settings
 {
   public:
@@ -20,6 +25,7 @@ class Settings
     static QFont font;
     static int fontPixelSize;
     static QFont MakeFont() noexcept;
+    static void LoadSettings(QString path);
 };
 
 #endif // SETTINGS_HPP
