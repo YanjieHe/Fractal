@@ -1,0 +1,133 @@
+[
+	{
+		"name": "Development",
+		"type": "Menu",
+		"items": [
+			{
+				"name": "racket",
+				"type": "Item",
+				"action": "Execute",
+				"command": "konsole -e racket"
+			},
+			{
+				"name": "DrRacket",
+				"type": "Item",
+				"action": "Execute",
+				"command": "drracket"
+			},
+			{
+				"name": "Qt Creator",
+				"type": "Item",
+				"action": "Execute",
+				"command": "qtcreator"
+			},
+			{
+				"name": "Python",
+				"type": "Item",
+				"action": "Execute",
+				"command": "konsole -e python"
+			},
+			{
+				"name": "Vim",
+				"type": "Item",
+				"action": "Execute",
+				"command": "konsole -e vim"
+			},
+			{
+				"name": "Emacs",
+				"type": "Item",
+				"action": "Execute",
+				"command": "emacs"
+			}
+		]
+	},
+	{
+		"name": "Education",
+		"type": "Menu",
+		"items": []
+	},
+	{
+		"name": "Games",
+		"type": "Menu",
+		"items": []
+	},
+	{
+		"name": "Graphics",
+		"type": "Menu",
+		"items": []
+	},
+	{
+		"name": "Internet",
+		"type": "Menu",
+		"items": [
+			{
+				"name": "Firefox",
+				"type": "Item",
+				"action": "Execute",
+				"command": "firefox"
+			}
+		]
+	},
+	{
+		"name": "Multimedia",
+		"type": "Menu",
+		"items": []
+	},
+	{
+		"name": "Office",
+		"type": "Menu",
+		"items": []
+	},
+	{
+		"name": "Science & Math",
+		"type": "Menu",
+		"items": []
+	},
+	{
+		"name": "Preferences",
+		"type": "Menu",
+		"items": []
+	},
+	{
+		"name": "System",
+		"type": "Menu",
+		"items": [
+			{
+				"name": "Openbox Configuration Manager",
+				"type": "Item",
+				"action": "Execute",
+				"command": "obconf"
+			}
+		]
+	},
+	{
+		"name": "System Tools",
+		"type": "Menu",
+		"items": [
+			{
+				"name": "File Manager PCManFM",
+				"type": "Item",
+				"action": "Execute",
+				"command": "pcmanfm"
+			},
+			{
+				"name": "Konsole",
+				"type": "Item",
+				"action": "Execute",
+				"command": "konsole"
+			},
+			{
+				"name": "Htop",
+				"type": "Item",
+				"action": "Execute",
+				"command": "konsole -e htop"
+			},
+			{
+				"name": "feh",
+				"type": "Item",
+				"action": "Execute",
+				"command": "feh"
+			}
+		]
+	}
+]

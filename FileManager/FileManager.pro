@@ -1,14 +1,14 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-05-19T02:41:02
+# Project created by QtCreator 2019-05-25T12:09:22
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = AppLauncher
+TARGET = FileManager
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,28 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        Application.cpp \
-        StartMenu.cpp \
-        TaskBar.cpp \
-        TaskButton.cpp \
-        XLibrary.cpp \
+        IconPreviewArea.cpp \
+        MainWindow.cpp \
+        Navigator.cpp \
+        Settings.cpp \
         main.cpp
 
 HEADERS += \
-        Application.hpp \
-        StartMenu.hpp \
-        TaskBar.hpp \
-        TaskButton.hpp \
-        XLibrary.hpp
+    IconPreviewArea.hpp \
+    MainWindow.hpp \
+    Navigator.hpp \
+    Settings.hpp
 
-FORMS +=
-
-LIBS += -lX11
-
-packagesExist(glib-2.0) {
-    CONFIG += link_pkgconfig
-    PKGCONFIG += glib-2.0
-}
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
