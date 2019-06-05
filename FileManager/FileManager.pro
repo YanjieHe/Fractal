@@ -35,6 +35,7 @@ HEADERS += \
     IconPreviewArea.hpp \
     MainWindow.hpp \
     Navigator.hpp \
+    PreDefs.hpp \
     Settings.hpp
 
 # Default rules for deployment.

@@ -3,6 +3,7 @@
 
 #include "IconPreviewArea.hpp"
 #include "Navigator.hpp"
+#include "PreDefs.hpp"
 #include <QMainWindow>
 #include <QMenuBar>
 #include <QResizeEvent>

@@ -1,11 +1,11 @@
 #include "MainWindow.hpp"
+#include <QDebug>
 #include <QGuiApplication>
 #include <QScreen>
 #include <QVBoxLayout>
-
 MainWindow::MainWindow()
-    : menuBar{new QMenuBar()}, navigator{new Navigator()},
-      iconPreviewArea{new IconPreviewArea()}
+    : menuBar{new QMenuBar()}, navigator{new Navigator(this)},
+      iconPreviewArea{new IconPreviewArea(size(), QDir("/home/heyanjie/"))}
 {
     QScreen* screen  = QGuiApplication::screens().front();
     int screenWidth  = screen->geometry().width();
@@ -22,11 +22,11 @@ MainWindow::MainWindow()
     QWidget* area = new QWidget();
     area->setSizePolicy(QSizePolicy::Policy::Expanding,
                         QSizePolicy::Policy::Expanding);
-    layout->addWidget(area);
     area->setStyleSheet("background-color: white");
     area->setLayout(iconPreviewArea);
 
     this->setCentralWidget(widget);
+    layout->addWidget(area);
     widget->setLayout(layout);
 
     AddItems(menuBar->addMenu("File"),
@@ -36,9 +36,6 @@ MainWindow::MainWindow()
     menuBar->addMenu("View");
     menuBar->addMenu("Tools");
     menuBar->addMenu("Help");
-
-    iconPreviewArea->SetDirectory("/home/heyanjie/");
-    iconPreviewArea->UpdateSize(size());
 }
 
 void MainWindow::AddItems(QMenu* menu, const QVector<QString>& items)

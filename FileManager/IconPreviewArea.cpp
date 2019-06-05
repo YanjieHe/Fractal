@@ -48,10 +48,8 @@ void IconView::mouseDoubleClickEvent(QMouseEvent*)
     {
         auto area = this->area;
         qDebug() << "change directory ->" << fileInfo.filePath();
-        area->SetDirectory(fileInfo.filePath());
-        qDebug() << "update size";
-        qDebug() << area->currentSize;
-        area->UpdateSize(area->currentSize);
+        area->history.VisitNewDirectory(fileInfo.filePath());
+        area->ChangeDirectory(fileInfo.filePath());
     }
     else
     {
@@ -63,16 +61,55 @@ void IconView::mouseDoubleClickEvent(QMouseEvent*)
     }
 }
 
-IconPreviewArea::IconPreviewArea()
+IconPreviewArea::IconPreviewArea(QSize size, QDir directory)
+    : currentSize{size}, currentDir{directory}, history(directory)
 {
+    qDebug() << "initialize icon preview area";
     setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    setSpacing(30);
+    ChangeDirectory(directory);
 }
 
-void IconPreviewArea::SetDirectory(const QString& path)
+void IconPreviewArea::UpdateSize(const QSize& size)
 {
-    QDir directory(path);
-    QDir::setCurrent(path);
-    QFileInfoList fileInfoList = directory.entryInfoList();
+    qDebug() << "current size = " << currentSize;
+    qDebug() << "new size = " << size;
+    currentSize				  = size;
+    auto computeNumberOfItems = [this](int wholeWidth, int itemWidth) {
+        int count		 = 0;
+        int currentWidth = itemWidth;
+        while (currentWidth < wholeWidth)
+        {
+            count++;
+            currentWidth = currentWidth + spacing() + itemWidth;
+        }
+        qDebug() << (itemWidth * count + spacing() * (count - 1));
+        return std::max(count, 1);
+    };
+    int itemsInARow =
+        computeNumberOfItems(size.width() - 37, Settings::filePreviewWidth);
+    qDebug() << "items in a row = " << itemsInARow;
+    int row = 0;
+    int col = 0;
+    for (const auto& item : icons)
+    {
+        this->addWidget(item, row, col, Qt::AlignCenter);
+        col++;
+        if (col >= itemsInARow)
+        {
+            col = 0;
+            row++;
+        }
+    }
+}
+
+void IconPreviewArea::ChangeDirectory(const QDir& directory)
+{
+    QDir::setCurrent(directory.path());
+    currentDir = directory;
+    QDir::Filters filters =
+        QDir::Files | QDir::Hidden | QDir::NoSymLinks | QDir::AllDirs;
+    QFileInfoList fileInfoList = directory.entryInfoList(filters);
     for (auto icon : icons)
     {
         delete icon;
@@ -88,44 +125,84 @@ void IconPreviewArea::SetDirectory(const QString& path)
         }
     }
     qDebug() << "successfully load all icons";
+    UpdateSize(currentSize);
 }
 
-void IconPreviewArea::UpdateSize(const QSize& size)
+IconPreviewArea::History::History() : current{list.begin()}
 {
-    currentSize = size;
-    setSpacing(30);
-    auto computeNumberOfItems = [this](int wholeWidth, int itemWidth) {
-        int count		 = 0;
-        int currentWidth = itemWidth;
-        while (currentWidth < wholeWidth)
-        {
-            count++;
-            currentWidth = currentWidth + itemWidth + spacing();
-        }
-        qDebug() << "current width =" << currentWidth
-                 << ", whole width =" << wholeWidth;
-        if (currentWidth - spacing() < wholeWidth)
-        {
-            return std::max(count, 1);
-        }
-        else
-        {
-            return std::max(count - 1, 1);
-        }
-    };
-    int itemsInARow =
-        computeNumberOfItems(size.width(), Settings::filePreviewWidth);
-    qDebug() << "items in a row = " << itemsInARow;
-    int row = 0;
-    int col = 0;
-    for (const auto& item : icons)
+}
+
+IconPreviewArea::History::History(const QDir& directory)
+{
+    list	= QVector<QDir>{directory};
+    current = list.begin();
+}
+
+void IconPreviewArea::History::VisitNewDirectory(const QDir& directory)
+{
+    if (list.empty())
     {
-        this->addWidget(item, row, col, Qt::AlignCenter);
-        col++;
-        if (col >= itemsInARow)
-        {
-            col = 0;
-            row++;
-        }
+        list.push_back(directory);
+        current = list.begin();
+    }
+    else if (current == list.end() - 1)
+    {
+        list.push_back(directory);
+        current = list.end() - 1;
+    }
+    else
+    {
+        list.erase(current + 1, list.end());
+        list.push_back(directory);
+        current = list.end() - 1;
+    }
+}
+
+const QDir& IconPreviewArea::History::CurrentDirectory() const
+{
+    return *current;
+}
+
+const QDir& IconPreviewArea::History::PreviousDirectory()
+{
+    current--;
+    return CurrentDirectory();
+}
+
+const QDir& IconPreviewArea::History::NextDirectory()
+{
+    current++;
+    return CurrentDirectory();
+}
+
+bool IconPreviewArea::History::HasPreviousDirectory() const
+{
+    if (list.empty())
+    {
+        return false;
+    }
+    else if (current == list.begin())
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+bool IconPreviewArea::History::HasNextDirectory() const
+{
+    if (list.empty())
+    {
+        return false;
+    }
+    else if (current == list.end() - 1)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
     }
 }

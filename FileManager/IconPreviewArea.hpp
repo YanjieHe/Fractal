@@ -1,16 +1,14 @@
 #ifndef ICONPREVIEWAREA_HPP
 #define ICONPREVIEWAREA_HPP
 
+#include "PreDefs.hpp"
+#include <QDir>
 #include <QFileInfo>
 #include <QGraphicsPixmapItem>
 #include <QGridLayout>
 #include <QIcon>
 #include <QLabel>
 #include <QToolButton>
-
-class IconView;
-class IconPreviewArea;
-
 class IconView : public QToolButton
 {
     Q_OBJECT
@@ -27,11 +25,27 @@ class IconPreviewArea : public QGridLayout
 {
     Q_OBJECT
   public:
+    class History
+    {
+      public:
+        QVector<QDir> list;
+        QVector<QDir>::iterator current;
+        History();
+        History(const QDir& directory);
+        void VisitNewDirectory(const QDir& directory);
+        const QDir& CurrentDirectory() const;
+        const QDir& PreviousDirectory();
+        const QDir& NextDirectory();
+        bool HasPreviousDirectory() const;
+        bool HasNextDirectory() const;
+    };
     QVector<IconView*> icons;
     QSize currentSize;
-    IconPreviewArea();
-    void SetDirectory(const QString& path);
+    QDir currentDir;
+    History history;
+    IconPreviewArea(QSize size, QDir directory);
     void UpdateSize(const QSize& size);
+    void ChangeDirectory(const QDir& directory);
 };
 
 #endif // ICONPREVIEWAREA_HPP
